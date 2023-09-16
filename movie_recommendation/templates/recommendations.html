@@ -1,0 +1,32 @@
+<!-- templates/recommendations.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Movie Recommendations</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Top 10 Recommendations for User {{ user_id }}</h1>
+        <div class="recommendations">
+            <ul>
+                {% for recommendation in recommendations %}
+                    <li>{{ recommendation }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="back-button">
+            <a href="/">Back to Home</a>
+        </div>
+        <div class="metrics">
+            <h2>RMSE Metrics</h2>
+            <p>SVD RMSE: {{ svd_rmse }}</p>
+            <p>User-Based RMSE: {{ user_based_rmse }}</p>
+            <p>Item-Based RMSE: {{ item_based_rmse }}</p>
+        </div>
+    </div>
+</body>
+</html>
